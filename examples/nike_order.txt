@@ -1,0 +1,35 @@
+NIKE.COM ORDER CONFIRMATION
+
+Thank you for your order!
+
+Order Number: N1234567890
+Order Date: December 1, 2024
+
+Ship To:
+Jane Smith
+456 Oak Avenue
+Portland, OR 97201
+
+Your Order:
+Air Max 270 - Men's
+Size: 10
+Color: Black/White
+Quantity: 1
+Price: $150.00
+
+Order Summary:
+Subtotal:       $150.00
+Shipping:       FREE
+Tax:            $13.50
+Total:          $163.50
+
+Estimated Delivery: December 5-7, 2024
+
+RETURNS & EXCHANGES
+Nike Members enjoy 60 days to return your order.
+Free returns with prepaid shipping label.
+Visit nike.com/orders to start your return.
+
+Customer Service: 1-800-806-6453
+
+Download Nike App for order tracking and exclusive deals!

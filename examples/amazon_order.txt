@@ -1,0 +1,32 @@
+Amazon.com - Order Confirmation
+
+Order Number: 123-4567890-1234567
+Order Date: November 15, 2024
+
+Shipping Address:
+John Doe
+123 Main Street
+Anytown, CA 12345
+
+Items Ordered:
+1. Wireless Bluetooth Headphones - Black
+   Qty: 1
+   Price: $79.99
+
+Order Summary:
+Items:          $79.99
+Shipping:       $0.00
+Tax:            $7.20
+Order Total:    $87.19
+
+Your order will arrive by November 20, 2024
+
+Return Policy:
+You can return most items within 30 days of delivery for a full refund.
+Visit amazon.com/returns to start a return.
+
+Questions about your order?
+Visit Your Orders on Amazon.com
+Customer Service: 1-888-280-4331
+
+Thank you for shopping with us!
