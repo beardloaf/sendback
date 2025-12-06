@@ -2,6 +2,9 @@
 const API_BASE = 'http://localhost:5000/api';
 
 // DOM Elements
+const merchantSearch = document.getElementById('merchantSearch');
+const searchBtn = document.getElementById('searchBtn');
+const searchResults = document.getElementById('searchResults');
 const uploadArea = document.getElementById('uploadArea');
 const fileInput = document.getElementById('fileInput');
 const textInput = document.getElementById('textInput');
@@ -17,6 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupEventListeners() {
+    // Merchant search
+    searchBtn.addEventListener('click', handleMerchantSearch);
+
+    merchantSearch.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleMerchantSearch();
+        }
+    });
+
     // File upload
     uploadArea.addEventListener('click', () => fileInput.click());
 
@@ -50,6 +62,109 @@ function setupEventListeners() {
 
     // Reset
     resetBtn.addEventListener('click', resetForm);
+}
+
+async function handleMerchantSearch() {
+    const query = merchantSearch.value.trim();
+
+    if (!query) {
+        alert('Please enter a merchant name');
+        return;
+    }
+
+    searchBtn.disabled = true;
+    searchBtn.textContent = 'Searching...';
+    searchResults.style.display = 'none';
+
+    try {
+        const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Search failed');
+        }
+
+        displaySearchResults(data.results, query);
+
+    } catch (error) {
+        alert('Error searching: ' + error.message);
+    } finally {
+        searchBtn.disabled = false;
+        searchBtn.textContent = 'Search';
+    }
+}
+
+function displaySearchResults(results, query) {
+    searchResults.style.display = 'block';
+
+    if (results.length === 0) {
+        searchResults.innerHTML = `
+            <div class="no-results">
+                <p>No results found for "${query}"</p>
+                <p>Try searching for: Amazon, Nike, Apple, Walmart, Target, etc.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `<p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;">
+        Found ${results.length} result${results.length > 1 ? 's' : ''} for "${query}"
+    </p>`;
+
+    results.forEach((merchant, index) => {
+        const itemId = `search-item-${index}`;
+        const addressId = `address-${index}`;
+
+        html += `
+            <div class="search-result-item" id="${itemId}">
+                <div class="search-result-header">
+                    <h3>${merchant.name}</h3>
+                    ${merchant.free_return_label ? '<span class="search-result-badge">✓ Free Label</span>' : ''}
+                </div>
+
+                <div class="search-result-details">
+                    <div class="search-result-detail">
+                        <strong>Return Window</strong>
+                        ${merchant.return_window_days} days
+                    </div>
+                    <div class="search-result-detail">
+                        <strong>Customer Service</strong>
+                        ${merchant.customer_service}
+                    </div>
+                </div>
+
+                <div class="search-result-actions">
+                    ${merchant.return_portal_url ? `
+                        <a href="${merchant.return_portal_url}" target="_blank" class="btn">
+                            Get Free Return Label →
+                        </a>
+                    ` : ''}
+                    <button class="btn" onclick="toggleAddress('${addressId}')">
+                        Show Return Address
+                    </button>
+                </div>
+
+                <div class="search-result-address" id="${addressId}">
+                    <strong style="display: block; margin-bottom: 0.5rem;">RETURN ADDRESS:</strong>
+                    ${merchant.return_address}
+
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                        <strong style="display: block; margin-bottom: 0.5rem;">INSTRUCTIONS:</strong>
+                        ${merchant.instructions}
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    searchResults.innerHTML = html;
+}
+
+function toggleAddress(addressId) {
+    const addressDiv = document.getElementById(addressId);
+    if (addressDiv) {
+        addressDiv.classList.toggle('visible');
+    }
 }
 
 async function handleFileUpload(file) {

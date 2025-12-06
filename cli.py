@@ -8,7 +8,7 @@ import argparse
 from datetime import datetime
 
 from order_parser import parse_order_confirmation
-from merchant_database import find_merchant, get_all_merchants, MERCHANT_DATABASE
+from merchant_database import find_merchant, get_all_merchants, search_merchants, get_merchant_count, MERCHANT_DATABASE
 
 
 def print_header():
@@ -119,6 +119,37 @@ def cmd_merchant(args):
         cmd_list_merchants(args)
 
 
+def cmd_search(args):
+    """Search for merchants"""
+    print_header()
+
+    results = search_merchants(args.query, limit=10)
+
+    if not results:
+        print(f"❌ No results found for '{args.query}'")
+        print("\nTry searching for: Amazon, Nike, Apple, Walmart, Target, etc.")
+        print(f"\nOr use 'list' command to see all {get_merchant_count()} supported merchants")
+        return
+
+    print(f"SEARCH RESULTS FOR '{args.query}'")
+    print(f"Found {len(results)} result(s)")
+    print("=" * 60)
+    print()
+
+    for i, info in enumerate(results, 1):
+        print(f"{i}. {info.merchant_name}")
+        print(f"   Return Window: {info.return_window_days} days")
+        print(f"   Free Label: {'✅ Yes' if info.free_return_label else '❌ No'}")
+        if info.return_portal_url:
+            print(f"   Portal: {info.return_portal_url}")
+        print()
+
+    # If only one result, show full details
+    if len(results) == 1:
+        print("=" * 60)
+        print_merchant_info(results[0])
+
+
 def cmd_list_merchants(args):
     """List all supported merchants"""
     print_header()
@@ -134,6 +165,7 @@ def cmd_list_merchants(args):
     print()
     print(f"Total: {len(merchants)} merchants")
     print("✅ = Free return label available")
+    print("\nTip: Use 'search <name>' to find a specific merchant")
 
 
 def main():
@@ -149,8 +181,13 @@ def main():
     parse_parser.add_argument('file', help='Order confirmation file (PDF, image, or text)')
     parse_parser.set_defaults(func=cmd_parse)
 
+    # Search command
+    search_parser = subparsers.add_parser('search', help='Search for merchants by name')
+    search_parser.add_argument('query', help='Search query (e.g., "nike", "apple", "target")')
+    search_parser.set_defaults(func=cmd_search)
+
     # Merchant command
-    merchant_parser = subparsers.add_parser('merchant', help='Look up merchant return info')
+    merchant_parser = subparsers.add_parser('merchant', help='Look up merchant return info (exact match)')
     merchant_parser.add_argument('name', help='Merchant name (e.g., "amazon", "walmart")')
     merchant_parser.set_defaults(func=cmd_merchant)
 

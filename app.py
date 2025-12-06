@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 
 from order_parser import parse_order_confirmation, OrderParser
-from merchant_database import find_merchant, get_all_merchants, MERCHANT_DATABASE
+from merchant_database import find_merchant, get_all_merchants, search_merchants, get_merchant_count, MERCHANT_DATABASE
 
 app = Flask(__name__)
 CORS(app)
@@ -70,6 +70,37 @@ def get_merchant(merchant_key):
         'free_return_label': info.free_return_label,
         'instructions': info.instructions,
         'customer_service': info.customer_service
+    })
+
+
+@app.route('/api/search', methods=['GET'])
+def search_merchant():
+    """Search for merchants by name"""
+    query = request.args.get('q', '').strip()
+
+    if not query:
+        return jsonify({'error': 'Search query required'}), 400
+
+    # Search for merchants
+    results = search_merchants(query, limit=10)
+
+    # Format results
+    merchants = []
+    for info in results:
+        merchants.append({
+            'name': info.merchant_name,
+            'return_address': info.return_address,
+            'return_portal_url': info.return_portal_url,
+            'return_window_days': info.return_window_days,
+            'free_return_label': info.free_return_label,
+            'instructions': info.instructions,
+            'customer_service': info.customer_service
+        })
+
+    return jsonify({
+        'query': query,
+        'count': len(merchants),
+        'results': merchants
     })
 
 

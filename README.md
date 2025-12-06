@@ -8,9 +8,10 @@ SendBack helps you return unwanted products through legitimate channels instead 
 
 ## Features
 
+🔍 **Quick Merchant Search**: Just type any merchant name to get return info instantly (NEW!)
 ✅ **Order Parsing**: Extract return information from order confirmations and receipts
-✅ **Return Database**: Access official business return addresses for major retailers
-✅ **Label Helper**: Direct links to official merchant return portals for free labels
+✅ **Return Database**: 50+ merchants with official business return addresses
+✅ **Free Label Helper**: Direct links to official merchant return portals for free prepaid labels
 ✅ **Deadline Tracking**: Never miss a return window again
 ✅ **Policy Lookup**: Understand each merchant's return requirements
 
@@ -46,6 +47,12 @@ cd web && npm run dev
 
 ### Usage
 
+**Option 1: Quick Search**
+1. **Search Merchant**: Type merchant name (e.g., "Nike", "Amazon", "Samsung")
+2. **Get Instant Info**: Return address, portal URL, and instructions
+3. **Get Free Label**: Click link to merchant's return portal
+
+**Option 2: Upload Order**
 1. **Upload Order Confirmation**: Email, PDF, or screenshot
 2. **Review Extracted Info**: Merchant, order date, return window
 3. **Get Return Address**: Official business return address
@@ -76,13 +83,20 @@ Provides direct links to:
 
 ## Merchant Database
 
-We maintain return information for major retailers including:
-- Amazon, eBay, Walmart, Target
-- Clothing retailers (Zara, H&M, Nike, etc.)
-- Electronics (Best Buy, Apple, etc.)
-- Direct-to-consumer brands
+We maintain return information for **50+ major retailers** including:
+- **Retail**: Amazon, Walmart, Target, eBay, Costco, Sam's Club
+- **Clothing**: Nike, Adidas, Zara, H&M, Gap, Old Navy, Lululemon, Patagonia, Under Armour
+- **Tech**: Apple, Samsung, Microsoft, Dell, HP, Lenovo, Sony, Best Buy
+- **Department Stores**: Nordstrom, Macy's, Kohl's, JCPenney
+- **Home & Furniture**: Home Depot, Lowe's, Wayfair, IKEA
+- **Beauty**: Sephora, Ulta
+- **Outdoor**: REI, Patagonia, The North Face
+- **Pet Supplies**: Chewy, Petco, PetSmart
+- And many more!
 
 All addresses are **publicly available business addresses** only.
+
+**Try it: Just search for any merchant name!**
 
 ## Privacy
 

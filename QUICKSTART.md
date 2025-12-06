@@ -40,6 +40,13 @@ Visit `http://localhost:8000` in your browser!
 
 ### Using the Web Interface
 
+**Quick Search** (NEW!):
+1. **Type** any merchant name (e.g., "Nike", "Amazon", "Apple")
+2. **Click** Search to get instant return info
+3. **Click** "Get Free Return Label" to go to their portal
+4. **View** return address and instructions
+
+**OR Upload Order**:
 1. **Upload** your order confirmation (PDF, screenshot, or text file)
    - OR paste the text directly
 2. **Review** extracted information
@@ -49,13 +56,25 @@ Visit `http://localhost:8000` in your browser!
 
 ## Option 2: Command Line
 
+### Quick Merchant Search (NEW!)
+
+Just type any merchant name to get return info instantly:
+
+```bash
+# Search for any merchant
+python cli.py search nike
+python cli.py search macbook
+python cli.py search samsung
+python cli.py search target
+```
+
 ### Parse an Order Confirmation
 
 ```bash
 python cli.py parse examples/amazon_order.txt
 ```
 
-### Look Up Merchant Information
+### Look Up Merchant Information (Exact Match)
 
 ```bash
 python cli.py merchant nike
@@ -193,13 +212,20 @@ curl http://localhost:5000/api/merchants
 
 ### Merchant Database
 
-We maintain return information for **major retailers**:
-- Amazon, Walmart, Target, Best Buy
-- Nike, Adidas, Zara, H&M
-- Apple, Nordstrom, Macy's
+We maintain return information for **50+ major retailers**:
+- **Retail**: Amazon, Walmart, Target, Costco, Sam's Club
+- **Clothing**: Nike, Adidas, Zara, H&M, Gap, Old Navy, Lululemon, Patagonia
+- **Tech**: Apple, Samsung, Microsoft, Dell, HP, Lenovo, Sony, Best Buy
+- **Department**: Nordstrom, Macy's, Kohl's, JCPenney
+- **Home**: Home Depot, Lowe's, Wayfair, IKEA
+- **Beauty**: Sephora, Ulta
+- **Outdoor**: REI, Patagonia, The North Face
+- **Pets**: Chewy, Petco, PetSmart
 - And more!
 
 All addresses are **official business addresses** (public record).
+
+**Just search for any merchant name to get started!**
 
 ## Environmental Impact
 

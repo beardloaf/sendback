@@ -14,6 +14,29 @@
         </header>
 
         <main>
+            <!-- Quick Search Section -->
+            <section class="card search-section">
+                <h2>🔍 Quick Merchant Search</h2>
+                <p>Just enter any merchant, manufacturer, or business name to get return address and free label info</p>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="merchantSearch"
+                        placeholder="e.g., Amazon, Nike, Apple, Target, Samsung..."
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="btn btn-primary">Search</button>
+                </div>
+
+                <!-- Search Results -->
+                <div id="searchResults" style="display: none;"></div>
+            </section>
+
+            <div class="divider-main">
+                <span>OR UPLOAD YOUR ORDER CONFIRMATION</span>
+            </div>
+
             <!-- Upload Section -->
             <section class="card upload-section">
                 <h2>Upload Order Confirmation</h2>
