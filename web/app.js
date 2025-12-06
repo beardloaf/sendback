@@ -107,8 +107,8 @@ function displaySearchResults(results, query) {
         return;
     }
 
-    let html = `<p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;">
-        Found ${results.length} result${results.length > 1 ? 's' : ''} for "${query}"
+    let html = `<p style="color: var(--text-light); margin-bottom: 24px; font-size: 15px;">
+        Found ${results.length} result${results.length > 1 ? 's' : ''} for "<strong style="color: var(--text);">${query}</strong>"
     </p>`;
 
     results.forEach((merchant, index) => {
