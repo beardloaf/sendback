@@ -212,20 +212,20 @@ curl http://localhost:5000/api/merchants
 
 ### Merchant Database
 
-We maintain return information for **50+ major retailers**:
-- **Retail**: Amazon, Walmart, Target, Costco, Sam's Club
-- **Clothing**: Nike, Adidas, Zara, H&M, Gap, Old Navy, Lululemon, Patagonia
-- **Tech**: Apple, Samsung, Microsoft, Dell, HP, Lenovo, Sony, Best Buy
-- **Department**: Nordstrom, Macy's, Kohl's, JCPenney
-- **Home**: Home Depot, Lowe's, Wayfair, IKEA
-- **Beauty**: Sephora, Ulta
-- **Outdoor**: REI, Patagonia, The North Face
-- **Pets**: Chewy, Petco, PetSmart
-- And more!
+We maintain return information for **80+ retailers** - especially the ones that make it hard!
+
+**Major Retailers**: Amazon, Walmart, Target, Best Buy, Apple, Nike, etc.
+
+**Hard-to-Return Brands** (Fighting corporate opacity!):
+- **SHEIN, Temu, AliExpress, Wish** - International sellers
+- **Fashion Nova, PrettyLittleThing, Boohoo** - Fast fashion brands
+- **Allbirds, Warby Parker, Gymshark** - DTC brands
+- **Stitch Fix, FabFitFun, Ipsy** - Subscription boxes
+- **Hims, Curology, Dollar Shave Club** - Health/beauty subscriptions
 
 All addresses are **official business addresses** (public record).
 
-**Just search for any merchant name to get started!**
+**We find the addresses companies try to hide!**
 
 ## Environmental Impact
 

@@ -83,20 +83,28 @@ Provides direct links to:
 
 ## Merchant Database
 
-We maintain return information for **50+ major retailers** including:
+We maintain return information for **80+ retailers** including the ones that make returns hardest:
+
+### Major Retailers
 - **Retail**: Amazon, Walmart, Target, eBay, Costco, Sam's Club
-- **Clothing**: Nike, Adidas, Zara, H&M, Gap, Old Navy, Lululemon, Patagonia, Under Armour
+- **Clothing**: Nike, Adidas, Zara, H&M, Gap, Old Navy, Lululemon, Patagonia
 - **Tech**: Apple, Samsung, Microsoft, Dell, HP, Lenovo, Sony, Best Buy
 - **Department Stores**: Nordstrom, Macy's, Kohl's, JCPenney
-- **Home & Furniture**: Home Depot, Lowe's, Wayfair, IKEA
-- **Beauty**: Sephora, Ulta
-- **Outdoor**: REI, Patagonia, The North Face
-- **Pet Supplies**: Chewy, Petco, PetSmart
-- And many more!
+- **Home**: Home Depot, Lowe's, Wayfair, IKEA
+- **Beauty**: Sephora, Ulta, Glossier, The Ordinary
+- **Outdoor**: REI, The North Face
+- **Pets**: Chewy, Petco, PetSmart
+
+### Hard-to-Find Brands (The ones that obscure their return addresses!)
+- **International**: SHEIN, Temu, AliExpress, Wish
+- **Fast Fashion**: Fashion Nova, PrettyLittleThing, Boohoo, ZAFUL, ROMWE
+- **DTC Brands**: Allbirds, Warby Parker, Casper, Purple, Gymshark, Fabletics
+- **Subscriptions**: Stitch Fix, FabFitFun, Ipsy, Blue Apron, HelloFresh
+- **Health/Beauty**: Hims, Keeps, Curology, Dollar Shave Club
 
 All addresses are **publicly available business addresses** only.
 
-**Try it: Just search for any merchant name!**
+**Fighting corporate opacity - making it impossible for companies to hide from returns!**
 
 ## Privacy
 
